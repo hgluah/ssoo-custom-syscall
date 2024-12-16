@@ -1,0 +1,45 @@
+Submodule linux-kernel-4.17 contains modified content
+diff --git a/linux-kernel-4.17/Makefile b/linux-kernel-4.17/Makefile
+index 32c83a163544..c77f6d6b5488 100644
+--- a/linux-kernel-4.17/Makefile
++++ b/linux-kernel-4.17/Makefile
+@@ -1,3 +1,13 @@
++#################
++# Adiciones lab #
++#################
++
++core-y += ../practica_lab
++
++#################
++# Makefile orig #
++#################
++
+ # SPDX-License-Identifier: GPL-2.0
+ VERSION = 4
+ PATCHLEVEL = 17
+diff --git a/linux-kernel-4.17/arch/x86/entry/syscalls/syscall_64.tbl b/linux-kernel-4.17/arch/x86/entry/syscalls/syscall_64.tbl
+index 4dfe42666d0c..fb8190aa6fbb 100644
+--- a/linux-kernel-4.17/arch/x86/entry/syscalls/syscall_64.tbl
++++ b/linux-kernel-4.17/arch/x86/entry/syscalls/syscall_64.tbl
+@@ -384,3 +384,8 @@
+ 545	x32	execveat		__x32_compat_sys_execveat/ptregs
+ 546	x32	preadv2			__x32_compat_sys_preadv64v2
+ 547	x32	pwritev2		__x32_compat_sys_pwritev64v2
++
++#################
++# Adiciones lab #
++#################
++548	64	ssoo_custom_syscall	__x64_sys_saying
+diff --git a/linux-kernel-4.17/include/linux/syscalls.h b/linux-kernel-4.17/include/linux/syscalls.h
+index 70fcda1a9049..4008703ca5c8 100644
+--- a/linux-kernel-4.17/include/linux/syscalls.h
++++ b/linux-kernel-4.17/include/linux/syscalls.h
+@@ -1268,4 +1268,8 @@ static inline long ksys_truncate(const char __user *pathname, loff_t length)
+ 	return do_sys_truncate(pathname, length);
+ }
+ 
++// #################
++// # Adiciones lab #
++// #################
++asmlinkage long sys_saying(void);
+ #endif
