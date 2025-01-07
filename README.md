@@ -1,8 +1,8 @@
-### Requisitos de sistema
+# Requisitos de sistema
 
 > En Ubuntu 18.10
 
-#### Instalación en una VM desde cero
+### Instalación en una VM desde cero
 
 ```console
 # Las URLs de apt en la instalación por defecto de Ubuntu 18 están desactualizadas
@@ -12,7 +12,7 @@ sudo sed -i 's/us.archive/old-releases/g' /etc/apt/sources.list
 sudo apt update ; sudo apt upgrade -y
 ```
 
-#### Dependencias necesarias
+### Dependencias necesarias
 
 ```console
 sudo apt install -y build-essential git
@@ -20,7 +20,7 @@ sudo apt install -y build-essential git
 sudo apt install -y libncurses-dev gawk flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf llvm
 ```
 
-#### Otras versiones de Ubuntu
+### Otras versiones de Ubuntu
 
 ```console
 # La última major-release de gcc creada antes de 2019 es la 8,
@@ -35,7 +35,7 @@ sudo apt update
 sudo apt install -y gcc-8
 ```
 
-### Compilación del proyecto
+# Compilación del proyecto
 
 ```console
 # Si no se clona de forma recursiva al inicio,
