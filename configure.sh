@@ -1,6 +1,12 @@
 #!/bin/bash -ex
 
-[ -d linux-kernel-4.17 ] || (wget -qO- https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.17.19.tar.gz | tar xz && cd linux-4.17.19 && git init -q && git add .)
-git -C linux-4.17.19/ apply changes-linux-kernel.patch
-make -C linux-kernel-4.17 menuconfig HOSTCC=gcc-8 CC=gcc-8
+KERNEL_NAME=linux-4.17.19
+
+[ -d linux-kernel-4.17 ] || (
+	wget -qO- "https://www.kernel.org/pub/linux/kernel/v4.x/${KERNEL_NAME}.tar.gz" | tar xz &&
+	cd $KERNEL_NAME &&
+	git init -q && git add . &&
+	git apply ../changes-linux-kernel.patch
+)
+make -C $KERNEL_NAME menuconfig HOSTCC=gcc-8 CC=gcc-8
 
