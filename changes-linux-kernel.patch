@@ -18,7 +18,7 @@ index 32c83a1..1cefd2b 100644
  		     $(core-y) $(core-m) $(drivers-y) $(drivers-m) \
  		     $(net-y) $(net-m) $(libs-y) $(libs-m) $(virt-y)))
 diff --git a/arch/x86/entry/syscalls/syscall_64.tbl b/arch/x86/entry/syscalls/syscall_64.tbl
-index 4dfe426..29af2c4 100644
+index 4dfe426..ca91c3b 100644
 --- a/arch/x86/entry/syscalls/syscall_64.tbl
 +++ b/arch/x86/entry/syscalls/syscall_64.tbl
 @@ -342,6 +342,14 @@
@@ -28,7 +28,7 @@ index 4dfe426..29af2c4 100644
 +#################
 +# Adiciones lab #
 +#################
-+333	64	ssoo_custom_syscall	__x64_sys_saying
++333	64	ssoo_custom_syscall	sys_saying
 +#################
 +# Contin. orig. #
 +#################
@@ -37,7 +37,7 @@ index 4dfe426..29af2c4 100644
  # x32-specific system call numbers start at 512 to avoid cache impact
  # for native 64-bit operation. The __x32_compat_sys stubs are created
 diff --git a/include/linux/syscalls.h b/include/linux/syscalls.h
-index 70fcda1..d7a9c2d 100644
+index 70fcda1..4d18782 100644
 --- a/include/linux/syscalls.h
 +++ b/include/linux/syscalls.h
 @@ -1268,4 +1268,12 @@ static inline long ksys_truncate(const char __user *pathname, loff_t length)
@@ -47,7 +47,7 @@ index 70fcda1..d7a9c2d 100644
 +// #################
 +// # Adiciones lab #
 +// #################
-+asmlinkage long sys_saying(void);
++asmlinkage long sys_saying(int, int);
 +// #################
 +// # Contin. orig. #
 +// #################
