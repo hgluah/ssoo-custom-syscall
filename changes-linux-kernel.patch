@@ -1,23 +1,26 @@
-Submodule linux-kernel-4.17 contains modified content
-diff --git a/linux-kernel-4.17/Makefile b/linux-kernel-4.17/Makefile
-index 32c83a163544..30556c2dce32 100644
---- a/linux-kernel-4.17/Makefile
-+++ b/linux-kernel-4.17/Makefile
-@@ -1787,3 +1787,10 @@ FORCE:
- # Declare the contents of the .PHONY variable as phony.  We keep that
- # information in a variable so we can use it in if_changed and friends.
- .PHONY: $(PHONY)
-+
+diff --git a/Makefile b/Makefile
+index 32c83a1..1cefd2b 100644
+--- a/Makefile
++++ b/Makefile
+@@ -980,6 +980,14 @@ endif
+ ifeq ($(KBUILD_EXTMOD),)
+ core-y		+= kernel/ certs/ mm/ fs/ ipc/ security/ crypto/ block/
+ 
 +#################
 +# Adiciones lab #
 +#################
++core-y		+= ../practica_lab/
++#################
++# Contin. orig. #
++#################
 +
-+core-y += ../practica_lab
-+
-diff --git a/linux-kernel-4.17/arch/x86/entry/syscalls/syscall_64.tbl b/linux-kernel-4.17/arch/x86/entry/syscalls/syscall_64.tbl
-index 4dfe42666d0c..29af2c42a014 100644
---- a/linux-kernel-4.17/arch/x86/entry/syscalls/syscall_64.tbl
-+++ b/linux-kernel-4.17/arch/x86/entry/syscalls/syscall_64.tbl
+ vmlinux-dirs	:= $(patsubst %/,%,$(filter %/, $(init-y) $(init-m) \
+ 		     $(core-y) $(core-m) $(drivers-y) $(drivers-m) \
+ 		     $(net-y) $(net-m) $(libs-y) $(libs-m) $(virt-y)))
+diff --git a/arch/x86/entry/syscalls/syscall_64.tbl b/arch/x86/entry/syscalls/syscall_64.tbl
+index 4dfe426..29af2c4 100644
+--- a/arch/x86/entry/syscalls/syscall_64.tbl
++++ b/arch/x86/entry/syscalls/syscall_64.tbl
 @@ -342,6 +342,14 @@
  331	common	pkey_free		__x64_sys_pkey_free
  332	common	statx			__x64_sys_statx
@@ -33,10 +36,10 @@ index 4dfe42666d0c..29af2c42a014 100644
  #
  # x32-specific system call numbers start at 512 to avoid cache impact
  # for native 64-bit operation. The __x32_compat_sys stubs are created
-diff --git a/linux-kernel-4.17/include/linux/syscalls.h b/linux-kernel-4.17/include/linux/syscalls.h
-index 70fcda1a9049..d7a9c2d421b1 100644
---- a/linux-kernel-4.17/include/linux/syscalls.h
-+++ b/linux-kernel-4.17/include/linux/syscalls.h
+diff --git a/include/linux/syscalls.h b/include/linux/syscalls.h
+index 70fcda1..d7a9c2d 100644
+--- a/include/linux/syscalls.h
++++ b/include/linux/syscalls.h
 @@ -1268,4 +1268,12 @@ static inline long ksys_truncate(const char __user *pathname, loff_t length)
  	return do_sys_truncate(pathname, length);
  }

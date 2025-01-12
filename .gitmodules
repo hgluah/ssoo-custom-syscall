@@ -1,4 +1,0 @@
-[submodule "linux-kernel-4.17"]
-	path = linux-kernel-4.17
-	url = git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
-	branch = v4.17.19
