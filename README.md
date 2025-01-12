@@ -1,4 +1,4 @@
-### Requisitos de sistema
+## Requisitos de sistema
 
 > En Ubuntu 18.10
 
@@ -35,7 +35,7 @@ sudo apt update
 sudo apt install -y gcc-8
 ```
 
-### Compilación del proyecto
+## Compilación del proyecto
 
 ```console
 # Si no se clona de forma recursiva al inicio,
@@ -45,4 +45,9 @@ cd ssoo-custom-syscall
 ./configure.sh
 ./compile.sh
 ```
+
+## Modificación del kernel
+
+Cada vez que se modifiquen archivos dentro del submódulo del kernel,
+será necesario ejecutar `./generate_patch.sh` antes de hacer commit.
 
