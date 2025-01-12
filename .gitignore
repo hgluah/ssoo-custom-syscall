@@ -1,6 +1,9 @@
 linux-*/
 
+*.o
+
 practica_lab/
 !practica_lab/Makefile
 !practica_lab/saying.c
 
+ejemplo_uso/example
